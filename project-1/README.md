@@ -162,7 +162,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 👤 Mentor
 
 **Your Name**
-- GitHub: [@your-Bishal](https://github.com/programmer-Bishal)
+- GitHub: [@Programmer-Bishal](https://github.com/programmer-Bishal)
 - LinkedIn: [Bishal](https://linkedin.com/in/programmer-Bishal)
 
 ---
