@@ -162,9 +162,8 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## 👤 Mentor
 
 **Your Name**
-- GitHub: [@Programmer-Bishal](https://github.com/programmer-Bishal)
-- LinkedIn: [Bishal](https://linkedin.com/in/programmer-Bishal)
-
+- GitHub: [@Programmer-Bishal](https://github.com/B-2005)
+- LinkedIn: [Bishal](https://linkedin.com/in/bishal-bhowmik-998504394)
 ---
 
 > *"The goal is to turn data into information, and information into insight."* — Carly Fiorina
