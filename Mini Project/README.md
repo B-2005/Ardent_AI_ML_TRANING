@@ -1,3 +1,5 @@
+<img width="1090" height="771" alt="Screenshot 2026-02-19 135404" src="https://github.com/user-attachments/assets/eaf46de6-db85-4ff1-a18e-3c32f755b927" />
+
 # 🧮 Python Calculator
 
 A clean, interactive command-line calculator built with Python. Supports basic arithmetic, percentage calculations, and statistical analysis — all from a simple menu-driven interface.
