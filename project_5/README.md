@@ -16,6 +16,11 @@ This project uses your webcam to detect faces in real time and predict the **emo
 
 **Detects 7 emotions:**
 
+![Uploading Screenshot 2026-02-20 143318.png…]()
+
+
+
+
 | Emoji | Emotion  |
 |-------|----------|
 | 😠    | Angry    |
