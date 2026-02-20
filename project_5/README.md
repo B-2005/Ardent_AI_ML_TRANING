@@ -16,8 +16,7 @@ This project uses your webcam to detect faces in real time and predict the **emo
 
 **Detects 7 emotions:**
 
-![Uploading Screenshot 2026-02-20 143318.png…]()
-
+<img width="1900" height="1051" alt="Screenshot 2026-02-20 143318" src="https://github.com/user-attachments/assets/f04c2d73-52bd-4c92-898f-a0b1d41416a0" />
 
 
 
