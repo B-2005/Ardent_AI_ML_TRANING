@@ -1,156 +1,138 @@
-# 🎯 Face Detection System — OpenCV + Python
+# 🎯 Face Detection System
 
-> Real-time face detection using a webcam and Haar Cascade classifier, built with OpenCV.
+A real-time face detection application built with Python and OpenCV, using the Haar Cascade Classifier to detect and highlight faces through a webcam feed.
 
-![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?style=flat&logo=opencv&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat)
-![Status](https://img.shields.io/badge/Status-Working-brightgreen?style=flat)
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?logo=opencv&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-## 📸 What It Does
+## 📸 Demo
 
-This project uses your computer's webcam to detect human faces **in real time**. It draws a green rectangle around each detected face and displays a live count of faces on screen. You can also capture and save a snapshot with a single keypress.
+The system draws a green bounding box around every detected face in real time, along with a live face count overlay on the screen.
+<img width="652" height="447" alt="image" src="https://github.com/user-attachments/assets/455e2667-1a09-498e-bb30-061ac148261d" />
 
 ---
 
 ## ✨ Features
 
-- 🔴 **Live webcam feed** — real-time video processing frame by frame
-- 🟩 **Face bounding boxes** — green rectangles drawn around every detected face
-- 🔢 **Live face counter** — displays the number of faces detected on screen
-- 📷 **Save snapshot** — press `s` to capture and save the current frame as a `.jpg`
-- ❌ **Clean exit** — press `q` to quit and release all resources properly
+- **Real-time face detection** via webcam using OpenCV's Haar Cascade model
+- **Live face counter** displayed on the video feed
+- **Snapshot capture** — save the current frame as a `.jpg` with a keypress
+- **Lightweight & dependency-free** beyond OpenCV — no deep learning framework required
 
 ---
 
-## 🧠 How It Works
+## 🛠️ Tech Stack
 
-| Step | Description |
-|---|---|
-| **1. Load Model** | Loads OpenCV's pre-trained `haarcascade_frontalface_default.xml` Haar Cascade classifier |
-| **2. Capture Video** | Opens the webcam using `cv2.VideoCapture` |
-| **3. Grayscale Convert** | Each frame is converted to grayscale for faster, more accurate detection |
-| **4. Detect Faces** | `detectMultiScale()` scans the frame for faces using the cascade model |
-| **5. Draw & Display** | Rectangles and face count are drawn on the frame and shown in a live window |
+| Tool | Purpose |
+|------|---------|
+| Python 3.x | Core language |
+| OpenCV (`cv2`) | Computer vision & webcam I/O |
+| Haar Cascade Classifier | Pre-trained face detection model |
 
 ---
 
-## 🗂️ Project Structure
+## 🚀 Getting Started
 
-```
-face-detection/
-│
-├── face_detection.py       # Main script — run this
-├── requirements.txt        # Dependencies
-└── README.md               # This file
-```
+### Prerequisites
 
-> **Note:** The Haar Cascade XML model (`haarcascade_frontalface_default.xml`) is bundled with OpenCV — no manual download needed.
+- Python 3.x installed
+- A working webcam
 
----
+### Installation
 
-## ⚙️ Installation & Setup
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/face-detection.git
+   cd face-detection
+   ```
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/face-detection.git
-cd face-detection
-```
+2. **Install dependencies**
+   ```bash
+   pip install opencv-python
+   ```
 
-### 2. (Optional) Create a virtual environment
-```bash
-python3 -m venv venv
-source venv/bin/activate        # macOS / Linux
-venv\Scripts\activate           # Windows
-```
-
-### 3. Install dependencies
-```bash
-pip install opencv-python
-```
-
----
-
-## ▶️ Running the Project
+### Running the App
 
 ```bash
 python3 face_detection.py
 ```
-
-The webcam window will open. Point your camera at a face to see detection in action.
 
 ---
 
 ## 🎮 Controls
 
 | Key | Action |
-|---|---|
-| `s` | Save current frame as `captured_face.jpg` |
-| `q` | Quit and close the window |
+|-----|--------|
+| `s` | Save the current frame as `captured_face.jpg` |
+| `q` | Quit the application |
 
 ---
 
-## 🔧 Configuration
+## ⚙️ Configuration
 
-You can tweak these parameters inside `face_detection.py` to adjust detection sensitivity:
+You can tweak detection sensitivity inside `face_detection.py`:
 
 ```python
 faces = face_cascade.detectMultiScale(
     gray,
-    scaleFactor=1.3,    # How much image is scaled down per step (lower = more sensitive)
-    minNeighbors=5      # Higher = fewer false positives, lower = more detections
+    scaleFactor=1.3,   # How much the image is reduced at each scale (higher = faster, less accurate)
+    minNeighbors=5     # How many neighbor rectangles needed to confirm a face (higher = fewer false positives)
 )
 ```
 
-**Webcam index** — if your default camera isn't working, change the device index:
+**Webcam index** — if your webcam isn't detected, change the device index:
 ```python
-cap = cv2.VideoCapture(0)   # 0 = default camera, 1, 2... for external cameras
+cap = cv2.VideoCapture(0)  # Try 0, 1, or 2 depending on your system
 ```
-> The current script uses index `2` with `cv2.CAP_AVFOUNDATION` (macOS). Change to `0` for most systems.
+
+> **macOS users:** The script uses `cv2.CAP_AVFOUNDATION` as the backend, which is the recommended capture API for macOS.
+
+---
+
+## 📁 Project Structure
+
+```
+face-detection/
+│
+├── face_detection.py     # Main application script
+├── requirements.txt      # Dependencies & setup instructions
+└── README.md             # Project documentation
+```
+
+---
+
+## 🧠 How It Works
+
+1. **Capture** — OpenCV opens the webcam and reads frames in a loop.
+2. **Preprocess** — Each frame is converted to grayscale, which is what the Haar Cascade model expects.
+3. **Detect** — The `detectMultiScale` function scans the grayscale frame at multiple scales to locate faces.
+4. **Annotate** — Green rectangles are drawn around each detected face, and a face count is overlaid on the frame.
+5. **Display** — The annotated frame is shown in a live window.
 
 ---
 
 ## 📦 Dependencies
 
-| Package | Purpose |
-|---|---|
-| `opencv-python` | Computer vision — webcam access, image processing, face detection |
+```
+opencv-python
+```
 
-Install via:
+Install with:
 ```bash
 pip install opencv-python
 ```
 
 ---
 
-## 🚀 Possible Improvements
+## 🤝 Contributing
 
-- [ ] Add eye and smile detection using additional Haar cascades
-- [ ] Draw face labels or IDs for multiple faces
-- [ ] Add face blurring / anonymization mode
-- [ ] Export a recorded video with detections
-- [ ] Upgrade to DNN-based detection (more accurate, handles angles better)
+Contributions, issues, and feature requests are welcome! Feel free to open a pull request or file an issue.
 
 ---
 
-## 📚 Concepts Used
+## 📄 License
 
-- **OpenCV (cv2)** — Open Source Computer Vision Library
-- **Haar Cascade Classifier** — A pre-trained ML model for object detection
-- **Grayscale conversion** — Reduces computation without losing structural information
-- **`detectMultiScale()`** — Detects objects at multiple image scales
-
----
-
-## 📬 Contact
-
-Made by **Bishal Bhowmik** · B.Sc Computer Science · Haldia Institute of Management
-
-[![GitHub](https://img.shields.io/badge/GitHub-B--2005-181717?style=flat&logo=github)](https://github.com/B-2005)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bishal%20Bhowmik-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/bishal-bhowmik-998504394/)
-
----
-
-*Built with Python & OpenCV · Mentored by SK Sahil (Code_ScholarEU)*
+This project is open source and available under the [MIT License](LICENSE).
